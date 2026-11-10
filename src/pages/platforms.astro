@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+const parts = ['A website built from the ground up', 'CRM management', 'Recurring subscriptions with payment gates', 'Member areas', 'Managed affiliate sections'];
+---
+<Base showTestCta={false} title="Platforms · The Vine Marketing" description="We plan and build connected digital platforms for medium businesses that sell digital products or run memberships, quoted to scope.">
+  <section class="page-head" aria-labelledby="t">
+    <p class="eyebrow">Platforms</p>
+    <h1 id="t">Custom digital platforms for medium businesses.</h1>
+    <p class="lede">A connected platform for businesses that sell digital products or run memberships. Every platform is quoted to scope.</p>
+    <a class="btn btn-primary" href="/contact">Talk about a platform<Icon name="arrow" /></a>
+  </section>
+
+  <section class="block" aria-labelledby="parts">
+    <h2 id="parts">What a platform can include</h2>
+    <div class="panel" style="margin-top:1.5rem;max-width:40rem">
+      <ul class="list-plain">{parts.map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>
+    </div>
+    <p class="note-box">We plan the scope with you first, then quote it.</p>
+  </section>
+</Base>

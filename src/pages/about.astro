@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { contact } from '../config/site';
+---
+<Base title="About · The Vine Marketing" description="The Vine Marketing is a digital agency in Rustenburg, working with small and growing businesses across South Africa.">
+  <section class="page-head" aria-labelledby="t">
+    <p class="eyebrow">About</p>
+    <h1 id="t">Who you’ll be talking to.</h1>
+    <p class="lede">The Vine Marketing is based in {contact.location} and works with small and growing businesses across South Africa.</p>
+  </section>
+  <section class="block" aria-label="Founder">
+    <div class="about-grid">
+      <figure class="founder placeholder" data-placeholder="founder-photo"><span>Founder photo to come</span></figure>
+      <div class="about-copy">
+        <p class="placeholder-text" data-placeholder="founder-intro">Founder introduction to come.</p>
+        <a class="btn btn-primary" href="/contact">Get in touch<Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+</Base>

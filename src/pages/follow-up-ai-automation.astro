@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { packages } from '../data/pricing';
+import { primaryCta } from '../config/site';
+const mine = packages.filter((p) => ['care', 'grow'].includes(p.id));
+const covers = ['Lead capture', 'Instant replies', 'CRM follow-up', 'AI agents', 'Automation'];
+---
+<Base title="Follow-up, AI and automation · The Vine Marketing" description="Lead capture, instant replies, CRM follow-up, AI agents and automation, so every enquiry gets an answer and a follow-up.">
+  <section class="page-head" aria-labelledby="t">
+    <p class="eyebrow">Follow-up, AI and automation</p>
+    <h1 id="t">Every enquiry gets an answer, and a follow-up.</h1>
+    <p class="lede">Lead capture, instant replies, CRM follow-up, AI agents and automation.</p>
+    <a class="btn btn-primary" href={primaryCta.href}>{primaryCta.label}<Icon name="arrow" /></a>
+  </section>
+
+  <section class="block two-col" aria-label="What this covers">
+    <div class="panel">
+      <h3>What it covers</h3>
+      <ul class="list-plain">{covers.map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>
+    </div>
+    <div class="panel">
+      <h3>AI and automation solutions</h3>
+      <p>AI agents that answer common questions and help with bookings, and automations that remove manual work. Priced by proposal after we scope it.</p>
+      <p class="soft" style="margin-top:0.75rem">WhatsApp automation is coming soon.</p>
+      <p style="margin-top:1rem"><a class="text-link" href="/contact">Talk it through<Icon name="arrow" size={18} /></a></p>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="packs">
+    <h2 id="packs">Monthly packages that include it</h2>
+    <p class="lede">Care keeps the lead system running. Grow adds CRM follow-up.</p>
+    <div class="pack-grid">
+      {mine.map((p) => (
+        <article class="pack">
+          <h3>{p.name}</h3>
+          <p class="pack-price">{p.price}</p>
+          <ul class="list-plain">{p.lines.map((l) => <li><Icon name="check" size={18} />{l}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

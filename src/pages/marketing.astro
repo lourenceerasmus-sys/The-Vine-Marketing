@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { packages } from '../data/pricing';
+const mine = packages.filter((p) => ['care-plus', 'grow', 'partner'].includes(p.id));
+---
+<Base title="Marketing · The Vine Marketing" description="Organic social content for Facebook and Instagram, and Meta ads management, for small and growing South African businesses.">
+  <section class="page-head" aria-labelledby="t">
+    <p class="eyebrow">Marketing</p>
+    <h1 id="t">Bring the right people to you, before they enquire.</h1>
+    <p class="lede">Organic social content and Meta ads management.</p>
+    <a class="btn btn-primary" href="/contact">Talk about marketing<Icon name="arrow" /></a>
+  </section>
+
+  <section class="block" aria-labelledby="packs">
+    <h2 id="packs">What each package includes</h2>
+    <div class="pack-grid four" style="grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))">
+      {mine.map((p) => (
+        <article class="pack">
+          <h3>{p.name}</h3>
+          <p class="pack-price">{p.price}</p>
+          <ul class="list-plain">{p.lines.map((l) => <li><Icon name="check" size={18} />{l}</li>)}</ul>
+          {p.note && <p class="pack-note">{p.note}</p>}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="block two-col" aria-label="How content works">
+    <div class="panel">
+      <h3>How posts work</h3>
+      <ul class="list-plain">
+        <li><Icon name="check" size={18} />Each post goes to both Facebook and Instagram and counts once</li>
+        <li><Icon name="check" size={18} />Per post: concept, design, caption, hashtags, scheduling and 1 revision round</li>
+        <li><Icon name="check" size={18} />Reels are made from clips you supply</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Not included</h3>
+      <ul class="list-plain list-minus">
+        <li>Comment and DM replies</li>
+        <li>Filming</li>
+        <li>Ad creative outside Partner</li>
+      </ul>
+      <p class="note-box">Ad spend, the creative and the strength of your offer determine how many people your ads reach and how many leads they produce. We don’t promise reach, followers or leads from posting frequency.</p>
+    </div>
+  </section>
+</Base>

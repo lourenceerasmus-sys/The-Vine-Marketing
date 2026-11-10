@@ -1,0 +1,37 @@
+---
+import { contact, enquiryEmbed } from '../config/site';
+interface Props { idPrefix?: string }
+const { idPrefix = 'f' } = Astro.props;
+---
+<div class="embed" data-enquiry-embed>
+  <iframe
+    src={enquiryEmbed.src}
+    id={`${enquiryEmbed.id}-${idPrefix}`}
+    title="Send The Vine Marketing a message"
+    loading="lazy"
+    data-layout="{'id':'INLINE'}"
+    data-trigger-type="alwaysShow"
+    data-activation-type="alwaysActivated"
+    data-deactivation-type="neverDeactivate"
+    data-form-name="Vine | Website Enquiry v1"
+    data-height="560"
+    data-layout-iframe-id={`${enquiryEmbed.id}-${idPrefix}`}
+    data-form-id="okE6c9mo7b2LyHqPfakM"
+  ></iframe>
+  <noscript><p class="embed-note">This form needs JavaScript. WhatsApp us on {contact.whatsappDisplay} or email {contact.email} instead.</p></noscript>
+  <p class="embed-note">Prefer not to use a form? WhatsApp us on {contact.whatsappDisplay} or email {contact.email}.</p>
+</div>
+<script>
+  // Loads the VanX resize helper once, after the page is idle.
+  import { enquiryEmbed } from '../config/site';
+  const load = () => {
+    if (document.querySelector('script[data-vanx-embed]')) return;
+    const s = document.createElement('script');
+    s.src = enquiryEmbed.script;
+    s.async = true;
+    s.dataset.vanxEmbed = 'true';
+    document.body.appendChild(s);
+  };
+  if ('requestIdleCallback' in window) (window as any).requestIdleCallback(load, { timeout: 3000 });
+  else setTimeout(load, 1500);
+</script>

@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+import { callRequestHref, contact } from '../config/site';
+---
+<ul class="routes">
+  <li><a href={callRequestHref}><Icon name="calendar" />Request a call</a></li>
+  <li><a href={contact.whatsappHref}><Icon name="chat" />WhatsApp {contact.whatsappDisplay}</a></li>
+  <li><a href={`mailto:${contact.email}`}><Icon name="mail" />{contact.email}</a></li>
+</ul>
