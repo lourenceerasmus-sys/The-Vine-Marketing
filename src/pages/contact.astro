@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import Routes from '../components/Routes.astro';
+---
+<Base title="Contact · The Vine Marketing" description="Send The Vine Marketing a short message, WhatsApp us or email.">
+  <section class="page-head" aria-labelledby="t">
+    <p class="eyebrow">Contact</p>
+    <h1 id="t">Rather talk it through first?</h1>
+    <p class="lede">Send a short message and you’ll get an instant reply to confirm we have it.</p>
+  </section>
+  <section class="block close" id="contact" aria-label="Enquiry form">
+    <EnquiryForm idPrefix="c" />
+    <Routes />
+  </section>
+</Base>

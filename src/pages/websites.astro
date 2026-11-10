@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { foundingLine, formatPrice, prices, websiteExcluded, websiteIncluded } from '../data/pricing';
+import { primaryCta } from '../config/site';
+const sites = ['website-3', 'website-5', 'website-premium'].map((id) => prices.find((p) => p.id === id)!);
+const audit = prices.find((p) => p.id === 'website-audit')!;
+---
+<Base title="Websites · The Vine Marketing" description="Website design and build for small and growing South African businesses, with hosting and care.">
+  <section class="page-head" aria-labelledby="t">
+    <p class="eyebrow">Websites</p>
+    <h1 id="t">A clear way for customers to reach you.</h1>
+    <p class="lede">Website design and build, with hosting and care. Each price says exactly what it is. {foundingLine}</p>
+    <a class="btn btn-primary" href="/contact">Ask about a website<Icon name="arrow" /></a>
+  </section>
+
+  <section class="block" aria-labelledby="prices">
+    <h2 id="prices">Prices</h2>
+    <dl class="panel" style="margin-top:1.5rem;max-width:44rem">
+      {sites.map((p) => (
+        <div class="price-row">
+          <dt>{p.name}</dt>
+          <dd class="ledger-price">{formatPrice(p)}</dd>
+          <dd class="ledger-what">{p.what}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="block two-col" aria-label="What is and is not included">
+    <div class="panel">
+      <h3>Included</h3>
+      <ul class="list-plain">{websiteIncluded.map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>
+    </div>
+    <div class="panel">
+      <h3>Quoted separately</h3>
+      <ul class="list-plain list-minus">{websiteExcluded.map((x) => <li>{x}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="audit">
+    <h2 id="audit">Not sure what needs fixing?</h2>
+    <p class="lede">{audit.name}: {audit.what}</p>
+    <p class="note-box">Ask for it on the contact page. For how a website form handles enquiries, the <a class="text-link" href={primaryCta.href}>free 5-Point Lead Response Test</a> checks that.</p>
+    <p style="margin-top:1.25rem"><a class="btn btn-primary" href="/contact">Ask for the free website audit<Icon name="arrow" /></a></p>
+  </section>
+</Base>

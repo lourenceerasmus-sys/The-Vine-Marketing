@@ -1,0 +1,20 @@
+---
+// One stroke icon set, 24px grid, 1.6 stroke, drawn for this site.
+interface Props {
+  name: 'menu' | 'close' | 'sun' | 'moon' | 'arrow' | 'chat' | 'mail' | 'calendar' | 'check';
+  size?: number;
+}
+const { name, size = 20 } = Astro.props;
+const paths: Record<Props['name'], string> = {
+  menu: 'M4 7h16M4 12h16M4 17h10',
+  close: 'M6 6l12 12M18 6L6 18',
+  sun: 'M12 4v1.5M12 18.5V20M4 12h1.5M18.5 12H20M6.3 6.3l1.1 1.1M16.6 16.6l1.1 1.1M6.3 17.7l1.1-1.1M16.6 7.4l1.1-1.1M12 8.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7z',
+  moon: 'M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z',
+  arrow: 'M5 12h13M13 6.5l5.5 5.5L13 17.5',
+  chat: 'M5 18.5V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H8.5L5 18.5z',
+  mail: 'M4 7l8 5.5L20 7M5 5.5h14a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1z',
+  calendar: 'M5 7.5a1.5 1.5 0 0 1 1.5-1.5h11A1.5 1.5 0 0 1 19 7.5v10a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 17.5zM5 10.5h14M9 4v3.5M15 4v3.5',
+  check: 'M5.5 12.5l4 4L18.5 7.5',
+};
+---
+<svg class="icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d={paths[name]} /></svg>
