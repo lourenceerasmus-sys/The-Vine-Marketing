@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import founderPhoto from '../../assets/lourence-erasmus.jpg';
 import EnquiryForm from '../components/EnquiryForm.astro';
 import Routes from '../components/Routes.astro';
 import heroArt from '../../assets/hero-vine-concept.png';
@@ -231,8 +232,9 @@ const startSmaller = ['lead-response-test', 'quick-fix', 'website-3', 'website-5
   <section class="block about" aria-labelledby="about-title">
     <h2 id="about-title">Who you’ll be talking to.</h2>
     <div class="about-grid">
-      <figure class="founder placeholder" data-placeholder="founder-photo">
-        <span>Founder photo to come</span>
+      <figure class="founder">
+        <Image src={founderPhoto} alt="Lourence Erasmus, founder of The Vine Marketing" width={720} widths={[320, 480, 720]} sizes="(min-width: 720px) 240px, 70vw" loading="lazy" />
+        <figcaption>Lourence Erasmus<span>Founder</span></figcaption>
       </figure>
       <div class="about-copy">
         <p>The Vine Marketing is based in {contact.location}.</p>

@@ -427,3 +427,9 @@ time, .meta, .status, .ledger-price { font-variant-numeric: tabular-nums; }
 .prose h2 { margin-top: 2rem; font-size: 1.25rem; }
 .prose p { margin-top: 0.6rem; color: var(--ink-soft); max-width: 62ch; }
 .prose a { text-decoration: underline; text-decoration-color: var(--gold); }
+
+.founder { display: block; }
+.founder img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 52% 20%; border-radius: 16px; }
+.founder figcaption { margin-top: 0.75rem; font-weight: 600; }
+.founder figcaption span { display: block; font-weight: 400; color: var(--ink-soft); font-size: 0.9375rem; }
+.founder figcaption { margin-left: 0; padding: 0; text-align: left; justify-self: start; }
