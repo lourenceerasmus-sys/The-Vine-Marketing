@@ -433,3 +433,8 @@ time, .meta, .status, .ledger-price { font-variant-numeric: tabular-nums; }
 .founder figcaption { margin-top: 0.75rem; font-weight: 600; }
 .founder figcaption span { display: block; font-weight: 400; color: var(--ink-soft); font-size: 0.9375rem; }
 .founder figcaption { margin-left: 0; padding: 0; text-align: left; justify-self: start; }
+
+.about-copy { display: grid; gap: 1rem; max-width: 40rem; justify-items: start; }
+.about-copy p { color: var(--ink-soft); }
+.about-name { font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem); }
+.about-copy h2.about-name { font-size: clamp(1.5rem, 1.2rem + 0.9vw, 2rem); line-height: 1.15; }
